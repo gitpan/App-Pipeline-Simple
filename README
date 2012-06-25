@@ -2,7 +2,7 @@ NAME
     App::Pipeline::Simple - Simple workflow manager
 
 VERSION
-    version 0.9_1
+    version 0.9_2
 
 SYNOPSIS
       # called from a script

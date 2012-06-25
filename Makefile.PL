@@ -31,7 +31,6 @@ my %WriteMakefileArgs = (
   "NAME" => "App::Pipeline::Simple",
   "PREREQ_PM" => {
     "Carp" => 0,
-    "Data::Printer" => 0,
     "File::Basename" => 0,
     "File::Copy" => 0,
     "Getopt::Long" => 0,
@@ -43,7 +42,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.9_1",
+  "VERSION" => "0.9_2",
   "test" => {
     "TESTS" => "t/*.t"
   }

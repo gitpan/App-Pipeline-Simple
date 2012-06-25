@@ -1,10 +1,41 @@
 ==================================================
-Changes from 2011-06-24 00:00:00 +0000 to present.
+Changes from 2011-06-26 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.9_1 at 2012-06-23 07:37:56 +0000
+version 0.9_2 at 2012-06-25 09:58:17 +0000
 ------------------------------------------
+
+  Change: 2d3a283dd4f325ef956134594be7f5d998b811e5
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-25 12:57:47 +0000
+
+    add a bioinformatics excample pipeline 
+
+  Change: 125c6db00d8d1878ab7844107e143182198fd580
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-25 12:55:55 +0000
+
+    Do not require Data::Printer 
+
+  Change: 6c6db057d0d5b8ff176c3b5971047c1e04c023ef
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-25 12:52:51 +0000
+
+    ignore cover_db; use only one change log 
+
+  Change: f1899d500288e78258ec782e07d816bb5d96ccf6
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-24 09:07:52 +0000
+
+    rewrite of config rendering; use single dash/space output format,
+    only 
+
+  Change: 8bc1ca2725c8910092ac3bf612a1470dbb7651b6
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-24 08:49:03 +0000
+
+    simplify the YAML; add an option with a value 
 
   Change: 7468335d29d5bc16c14399295cbebc0331722b75
   Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>

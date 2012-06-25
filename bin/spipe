@@ -9,7 +9,7 @@ use warnings;
 
 use constant PROGRAMME_NAME => 'spipe';
 # ABSTRACT: simple pipeline running interface
-our $VERSION = '0.9_1'; # VERSION
+our $VERSION = '0.9_2'; # VERSION
 # PODNAME: spipe
 
 # raising $OUTPUT_AUTOFLUSH flag to get immediate reporting
@@ -81,7 +81,7 @@ spipe - simple pipeline running interface
 
 =head1 VERSION
 
-version 0.9_1
+version 0.9_2
 
 =head1 SYNOPSIS
 
