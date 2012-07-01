@@ -4,7 +4,7 @@
 ## no critic
 package App::Pipeline::Simple;
 # ABSTRACT: Simple workflow manager
-our $VERSION = '0.9_2'; # VERSION
+our $VERSION = '0.9.0'; # VERSION
 
 use strict;
 use warnings;
@@ -561,7 +561,7 @@ sub graphviz {
 
     my $end;
     $g->add_node($self->id,
-		 label => $self->id. " : ".
+		 label => $self->id.
 		 $self->render('4display'), rank => 'top');
     map {  $g->add_edge('s0' => $_) }  $self->each_next;
     if ($self->description) {
@@ -571,14 +571,14 @@ sub graphviz {
     }
 
     foreach my $step ($self->each_step) {
-	$g->add_node($step->id, label => $step->id. " : ". ($step->name||'') );
+	$g->add_node($step->id, label => $step->id );
 	if ($step->each_next) {
-	    map {  $g->add_edge($step->id => $_, label => $step->render('display') ) }
+	    map {  $g->add_edge($step->id => $_, label => " ". $step->render('display') ) }
 		$step->each_next;
 	} else {
 	    $end++;
 	    $g->add_node($end, label => ' ');
-	    $g->add_edge($step->id => $end, label => $step->render('display') );
+	    $g->add_edge($step->id => $end, label => " ". $step->render('display') );
 	}
 
     }
@@ -600,7 +600,7 @@ App::Pipeline::Simple - Simple workflow manager
 
 =head1 VERSION
 
-version 0.9_2
+version 0.9.0
 
 =head1 SYNOPSIS
 
@@ -608,12 +608,16 @@ version 0.9_2
 
 =head1 DESCRIPTION
 
+Unless you want to change or extend the module, you probably do not
+need to read this documentation. Runtime information is in L<spipe>
+application.
+
 Workflow management in computational (biological) sciences is a hard
 problem. This module is based on assumption that UNIX pipe and
 redirect system is closest to optimal solution with these
 improvements:
 
-* Enforce the storing of all intermediary steps in a file.
+* Enforce the storing of all intermediate steps in a file.
 
   This is for clarity, accountability and to enable arbitrarily big
   data sets. Pipeline can contain independent steps that remove
@@ -638,11 +642,12 @@ recursively represent the whole pipeline as well as individual steps.
 
 =head2 new
 
-Constructor
+Constructor for the class. One instance represents the whole pipeline,
+and other instances are created for each step in the pipeline.
 
 =head2 verbose
 
-Control logging output. Defaults to 0.
+Controls logging output. Defaults to 0.
 
 Setting verbose sets the logging level:
 
@@ -731,146 +736,6 @@ Analyze the configuration without executing it.
 =head2 graphviz
 
 Create a GraphViz dot file from the config.
-
-=head1 RUNNING
-
-App::Pipeline::Simple comes with a wrapper C<spipe> command line
-program. Do
-
-   spipe -h
-
-to see instructions on how to run it.
-
-Example run:
-
-  spipe -config t/data/string_manipulation.xml -d /tmp/test
-
-reads instructions from the config file and writes all information to
-the project directory.
-
-The debug option will parse the config file, print out the command
-line equivalents of all commands and print out warnings of problems
-encountered in the file:
-
-  spipe -config t/data/string_manipulation.xml -d /tmp/test
-
-An other tool integrated in the system is visualization of the
-execution graph. It is done with the help of L<GraphViz> perl
-interface module that will need to be installed from CPAN.
-
-The following command line creates a Graphviz dot file, converts it
-into an image file and opens it with the Imagemagic display program:
-
-  spipe -config t/data/string_manipulation.xml -graph > \
-    /tmp/p.dot; dot -Tpng /tmp/p.dot | display
-
-=head1 CONFIGURATION
-
-The default configuration is written in YAML, a simple and human
-readable language that can be parsed in many languages cleanly into
-data structures.
-
-The YAML file contains four top level keys for the hash that the file
-will be read into: 1) C<name> to give the pipeline a short name, 2)
-C<version> to indicate the version number, 3) C<description> to give a
-more verbose explanation what the pipeline does, and 4) C<steps>
-listing pipeline steps.
-
-  ---
-  description: "Example of a pipeline"
-  name: String Manipulation
-  version: '0.4'
-  steps:
-
-Each C<step> needs an C<id> that is unique within the pipeline and a
-C<name> that identifies an executable somewhere in the system
-path. Alternatively, you can give the path leading to the executable
-file with key C<path>. The name will be added to the path,
-padded with a suitable separator character, if needed.
-
-Arguments to the executable are given individually within C<arg>
-tags. They are named with the C<key> attribute. A single hyphen is
-added in front of the arguments when they are executed. If two hyphens
-are needed, just add one the file.
-
-Arguments can exist without values, or they can be given with
-attribute C<value>.
-
-  s3:
-    name: cat
-    args:
-      in:
-        type: redir
-        value: s1.txt
-      "n": {}
-      out:
-        type: redir
-        value: s3_mod.txt
-    next:
-      - s4
-
-There are two special keys C<in> and C<out> that need to have a further
- C<type> defined. The IO C<type> can get two kind of values:
-
-=over
-
-=item C<unnamed>
-
-that indicates that the argument is an unnamed argument
-to the executable.
-
-=item C<redir>
-
-will be interpreted as UNIX redirection character '&lt' or '&gt'
-depending on the context.
-
-=back
-
-The values C<file> and C<dir> are not needed by the pipeline
-but are useful to include to make the pipeline easier to read for
-humans. The interpretation of these arguments is done by the program
-executable called by the step.
-
-Finally, the C<step> tag can contain the C<next> key that
-gives an array of IDs for the next steps in the execution. Typically,
-these steps depends on the previous step for input.
-
-Practices that are completely bonkers, like spaces in file names, are
-not supported.
-
-=head2 Advanced features
-
-The pipeline does not have to be linear; it can contain branches. For
-example, the pipeline can have several start points with different
-kinds of input: file and string.
-
-Sometimes it is useful to be run the same pipeline with different
-parameter. The starting point of execution can take a value from the
-command line.  Leave the value for the given argument blank in the
-configuration file and give it from the command line. Matching of
-values is done by matching the type string.
-
-  spipe -conf input_demo.yml --input=ABC --itype=str
-
-  ---
-  description: "Demonstrate input from command line"
-  name: input.yml
-  version: '0.1'
-  steps:
-    s1:
-      name: echo
-      args:
-        in:
-          type: unnamed
-          value:
-        out:
-          type: redir
-          value: s1_string.txt
-
-The empty C<value> will be filled in from the command line into the
-C<config.yml> stored in the project directory. Also, the config file
-looks slightly different since the steps are written out as
-App::Pipeline::Simple objects. Functionally there is no difference.
 
 =head1 AUTHOR
 

@@ -11,6 +11,7 @@ my %module_build_args = (
     "File::Find" => 0,
     "File::Spec" => 0,
     "File::Temp" => 0,
+    "FindBin" => 0,
     "Module::Build" => "0.3601",
     "Test::More" => 0
   },
@@ -23,7 +24,7 @@ my %module_build_args = (
     "Heikki Lehvaslaiho, KAUST (King Abdullah University of Science and Technology)."
   ],
   "dist_name" => "App-Pipeline-Simple",
-  "dist_version" => "0.9_2",
+  "dist_version" => "0.9.0",
   "license" => "perl",
   "module_name" => "App::Pipeline::Simple",
   "recommends" => {},

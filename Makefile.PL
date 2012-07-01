@@ -16,6 +16,7 @@ my %WriteMakefileArgs = (
     "File::Find" => 0,
     "File::Spec" => 0,
     "File::Temp" => 0,
+    "FindBin" => 0,
     "Module::Build" => "0.3601",
     "Test::More" => 0
   },
@@ -42,7 +43,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.9_2",
+  "VERSION" => "0.9.0",
   "test" => {
     "TESTS" => "t/*.t"
   }

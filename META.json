@@ -47,12 +47,13 @@
             "File::Find" : "0",
             "File::Spec" : "0",
             "File::Temp" : "0",
+            "FindBin" : "0",
             "Test::More" : "0"
          }
       }
    },
-   "release_status" : "testing",
-   "version" : "0.9_2",
+   "release_status" : "stable",
+   "version" : "0.9.0",
    "x_Dist_Zilla" : {
       "plugins" : [
          {

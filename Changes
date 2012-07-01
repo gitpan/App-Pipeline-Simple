@@ -1,10 +1,70 @@
 ==================================================
-Changes from 2011-06-26 00:00:00 +0000 to present.
+Changes from 2011-07-02 00:00:00 +0000 to present.
 ==================================================
 
 ------------------------------------------
-version 0.9_2 at 2012-06-25 09:58:17 +0000
+version 0.9.0 at 2012-07-01 08:35:15 +0000
 ------------------------------------------
+
+  Change: c96a35c8045955da24fbb4f25fa245801d6d8488
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-07-01 11:35:02 +0000
+
+    small documentation fixes 
+
+  Change: a8670578cb59ecc6b6c52f1ae4d7bce6d237547d
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-07-01 10:50:08 +0000
+
+    reorganize documentation: all run time information into spipe 
+
+  Change: 240b48ea0a676b1bd3f10e8782534d534f6bfe48
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-30 12:07:27 +0000
+
+    use FindBin to find the binary 
+
+  Change: 95378878b6d39b0108af9f07efd2daada9739506
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:55:37 +0000
+
+    Merge branch 'master' of github.com:heikkil/app-pipeline-simple 
+
+  Change: a6933d56544d1cd988c707b7e3cddb0d1feafae0
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:54:45 +0000
+
+    standard file name 'Changes' used 
+
+  Change: 77060492790938fb89e80d59dbca9a923805a48d
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:54:45 +0000
+
+    cleaner graphviz output 
+
+  Change: 3b42601dac727191f44559a79b08bc4ef7658e1e
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:54:45 +0000
+
+    better documentation on IO types 
+
+  Change: e4e198d8b434051399fc563b2204371dcbe70cad
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:54:19 +0000
+
+    add a bioinformatics example pipeline 
+
+  Change: 921a3ab82a18b26d5fabbd79b05eba09e4d0a77e
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:26:22 +0000
+
+    cleaner graphviz output 
+
+  Change: fb362e91a90e5424c2a554d718cced3d35764847
+  Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
+  Date : 2012-06-26 10:23:17 +0000
+
+    better documentation on IO types 
 
   Change: 2d3a283dd4f325ef956134594be7f5d998b811e5
   Author: Heikki Lehvaslaiho <Heikki.Lehvaslaiho@kaust.edu.sa>
