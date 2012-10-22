@@ -2,7 +2,7 @@ NAME
     App::Pipeline::Simple - Simple workflow manager
 
 VERSION
-    version 0.9.0
+    version 0.9.1
 
 SYNOPSIS
       # called from a script
@@ -33,7 +33,7 @@ DESCRIPTION
     A pipeline is a collection of steps that are functionally equivalent to
     a pipeline. In other words, execution of a pipeline equals to execution
     of a each ordered step within the pipeline. From that derives that the
-    pipeline object model needs only one object that can recursively
+    pipeline object model needs only one class that can recursively
     represent the whole pipeline as well as individual steps.
 
 METHODS
@@ -111,6 +111,9 @@ METHODS
 
   graphviz
     Create a GraphViz dot file from the config.
+
+SEE ALSO
+    spipe
 
 AUTHOR
     Heikki Lehvaslaiho, KAUST (King Abdullah University of Science and

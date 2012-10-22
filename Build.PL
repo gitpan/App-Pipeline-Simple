@@ -24,7 +24,7 @@ my %module_build_args = (
     "Heikki Lehvaslaiho, KAUST (King Abdullah University of Science and Technology)."
   ],
   "dist_name" => "App-Pipeline-Simple",
-  "dist_version" => "0.9.0",
+  "dist_version" => "0.9.1",
   "license" => "perl",
   "module_name" => "App::Pipeline::Simple",
   "recommends" => {},

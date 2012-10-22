@@ -9,7 +9,7 @@ use warnings;
 
 use constant PROGRAMME_NAME => 'spipe';
 # ABSTRACT: simple pipeline running interface
-our $VERSION = '0.9.0'; # VERSION
+our $VERSION = '0.9.1'; # VERSION
 # PODNAME: spipe
 
 # raising $OUTPUT_AUTOFLUSH flag to get immediate reporting
@@ -69,10 +69,8 @@ print $p->stringify and exit if $DEBUG;
 
 $p->run();
 
-
-
-
 __END__
+
 =pod
 
 =head1 NAME
@@ -81,7 +79,7 @@ spipe - simple pipeline running interface
 
 =head1 VERSION
 
-version 0.9.0
+version 0.9.1
 
 =head1 SYNOPSIS
 
@@ -276,6 +274,26 @@ these steps depend on the previous step for input.
 Practices that are completely bonkers, like spaces in file names, are
 not supported.
 
+Finally, it is worth noting that YAML can need escaping and quoting to
+get special characters inside strings. Double quotes around a string
+works most of the time well. A single quote inside a single quoted
+string needs to be doubled.
+
+The following example of a perl one-liner (Thanks to Nic Walker for
+alerting me) could be equally well written using double quotes like
+this: "'print $F[1]'"
+
+  s6:
+    name: perl
+    args:
+      lane: '''print $F[1]'''
+      in:
+        type: redir
+        value: myfile
+      out:
+        type: redir
+        value: sec_column
+
 =head2 Advanced features
 
 The pipeline does not have to be linear; it can contain branches. For
@@ -310,6 +328,20 @@ C<config.yml> stored in the project directory. Also, the config file
 looks slightly different since the steps are written out as
 App::Pipeline::Simple objects. Functionally there is no difference.
 
+=head1 TO DO
+
+This pipeline engine has been tested using mostly linear pipelines.
+Extensive branching and complex dependencies might not work as expected.
+
+There are no explicit tests for the existence of step input
+files. Scripts are expected to run these steps themselves and die
+gracefully when appropriate.
+
+There has been no attempt to execute steps in parallel fashion.
+
+If all this is included, this pipeline engine might not be "simple"
+any more.
+
 =head1 SEE ALSO
 
 L<App::Pipeline::Simple>
@@ -326,4 +358,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

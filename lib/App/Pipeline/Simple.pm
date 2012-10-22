@@ -4,7 +4,7 @@
 ## no critic
 package App::Pipeline::Simple;
 # ABSTRACT: Simple workflow manager
-our $VERSION = '0.9.0'; # VERSION
+our $VERSION = '0.9.1'; # VERSION
 
 use strict;
 use warnings;
@@ -591,6 +591,7 @@ sub graphviz {
 
 1;
 
+__END__
 
 =pod
 
@@ -600,7 +601,7 @@ App::Pipeline::Simple - Simple workflow manager
 
 =head1 VERSION
 
-version 0.9.0
+version 0.9.1
 
 =head1 SYNOPSIS
 
@@ -634,8 +635,8 @@ improvements:
 
 A pipeline is a collection of steps that are functionally equivalent
 to a pipeline. In other words, execution of a pipeline equals to
-execution of a each ordered step within the pipeline. From that derives
-that the pipeline object model needs only one object that can
+execution of a each ordered step within the pipeline. From that
+derives that the pipeline object model needs only one class that can
 recursively represent the whole pipeline as well as individual steps.
 
 =head1 METHODS
@@ -737,6 +738,10 @@ Analyze the configuration without executing it.
 
 Create a GraphViz dot file from the config.
 
+=head1 SEE ALSO
+
+L<spipe>
+
 =head1 AUTHOR
 
 Heikki Lehvaslaiho, KAUST (King Abdullah University of Science and Technology).
@@ -749,9 +754,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
-
-__END__
-
-
-
